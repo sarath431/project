@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {%block head%}
+    {%endblock%}
+    <style>
+      #user{
+        font-size: 20px;
+        text-align: right;
+        color: yellow;
+        font-family:cursive;
+
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top ">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <!-- Image and text -->
+
+        <a class="navbar-brand" href="/">
+            WAY2CORE
+        </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/projectlist">IoT Projects</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Embedded Projects</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">LoRa Projects</a>
+            </li>
+            <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mini-project
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">IoT</a>
+              <a class="dropdown-item" href="#">Embedded systems</a>
+              <a class="dropdown-item" href="#">Matlab</a>
+              <a class="dropdown-item" href="#">Machine learning</a>
+              <a class="dropdown-item" href="#">Web Design</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">PCB Design</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto navbar-right">
+            <li class="nav-item active">
+              <a class="nav-link" href="/signup"><img src="{%static "images/signup.png"%}" width="30" height="30"> Signup</a>
+            </li>&nbsp&nbsp&nbsp&nbsp
+            <li class="nav-item active">
+              <a class="nav-link" href="/accounts/logout"><img src="{%static "images/logout.png"%}" width="30" height="30"> Logout</a>
+            </li>&nbsp&nbsp&nbsp&nbsp
+            <!-- <button id="user" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Logged in as {{ user.first_name }} {{ user.last_name }} with Email:{{user.email}}">
+              {{ user.username }}
+            </button> -->
+            <li class="nav-item active">
+              <!-- <p id="user" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Logged in as {{ user.first_name }} {{ user.last_name }} with Email:{{user.email}}">{{user.username}}</p> -->
+              <a id="user" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Logged in as {{ user.first_name }} {{ user.last_name }} with Email:{{user.email}}" href="#">{{ user.username }}</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+<br>
+
+
+    {%block body%}
+    {%endblock%}
+
+      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

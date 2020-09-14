@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{%extends 'login/base.html'%}
+{%load crispy_forms_tags%}
+{%block head%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style media="screen">
+  #signup{
+    margin: 10px;
+    float: left;
+
+  }
+  body{
+    background-image: url('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+</style>
+{%endblock%}
+{%block body%}
+
+  <div class="container" id="signup">
+    <h1>Signup for free</h1>
+    <hr>
+
+    <form method="post">
+      {%csrf_token%}
+
+  <div class="col-6" id="test">
+    {{form.username|as_crispy_field }}
+  </div><div class="col-6">
+    {{ form.password|as_crispy_field }}
+  </div><div class="col-6">
+    {{ form.first_name|as_crispy_field }}
+  </div><div class="col-6">
+    {{ form.last_name|as_crispy_field }}
+  </div>
+  <div class="col-6">
+    {{ form.email|as_crispy_field }}
+  </div>
+
+      <br>
+      <input class="btn btn-primary" type="submit" name="" value="Signup">
+    </form>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#user").change(function () {
+        var username=$(this).val();
+        console.log($(this).val());
+
+        $.ajax({
+          url:'{% url "validate" %}',
+          data:{
+            'username':username
+          },
+          dataType:'json',
+          success:function(data){
+            if(data.is_taken){
+               alert(data.error_message);
+            }
+          }
+        });
+      });
+      });
+    </script>
+  </div>
+
+
+{%endblock%}

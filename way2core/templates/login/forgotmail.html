@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'login/base.html' %}
+{%block head%}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{%endblock%}
+
+{% block body %}
+<div class="container" align='center'>
+  <div class="jumbotron">
+  <h3>Forgot password</h3><hr>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" name="" value="Reset_Password">
+  </form>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_Username").change(function () {
+    var username=$(this).val();
+    console.log($(this).val());
+    $("#id_Email").change(function () {
+    var email=$(this).val();
+    console.log($(this).val());
+    $.ajax({
+      url:'{% url "forgot" %}',
+      data:{
+        'username':username,
+        'email':email
+      },
+      dataType:'json',
+      success:function(data){
+        if(data.is_taken){
+          $('.btn').click(function(){
+            alert(data.success_message);
+          });
+        }
+        else{
+          alert(data.error_message);
+        }
+      }
+
+    });
+    });
+    });
+
+  });
+</script>
+
+</div>
+</div>
+{% endblock %}

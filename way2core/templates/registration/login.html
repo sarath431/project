@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%extends 'login/base.html'%}
+{%block head%}
+<style media="screen">
+  #login{
+    margin: 100px;
+    float: right;
+  }
+  body{
+    background-image: url('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #sign{
+    font-size: 22px;
+    font-weight: bold;
+    font-style:italic;
+  }
+  .company{
+
+    margin-top: 250px;
+    margin-left: 50px;
+    float: left;
+  }
+  h4{
+    font-style:italic;
+    margin-left: 150px;
+  }
+
+</style>
+{%endblock%}
+{%block body%}
+<div id="login" align='center'>
+  <!-- <div class="jumbotron"> -->
+    <h1>Login To Enter</h1><hr><br>
+    <form method="post">
+      {{form.as_p}}
+      {%csrf_token%}
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input class="btn btn-primary" type="submit" name="" value="Login"> &nbsp&nbsp&nbsp<a href="/accounts/password_reset">Forgot Password?</a>
+    </form>
+
+    <!-- <a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>&nbsp&nbsp&nbsp
+    <a class="btn btn-primary" href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br><hr>  -->
+    <hr>
+    <p id="sign">No account, Please <a href="/signup">signup</a></p>
+  <!-- </div> -->
+</div>
+
+</div>
+
+<div class="company">
+  <h1>WAY2CORE TECHNOLOGIES</h1>
+  <h4>technology partner for your success</h4>
+</div>
+{%endblock%}

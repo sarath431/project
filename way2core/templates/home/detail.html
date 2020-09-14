@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{%extends 'home/base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block body%}
+<link rel="stylesheet" href="{%static "css/index.css"%}">
+        <div class="container">
+          <div class="jumbotron">
+            <h3>Project title: {{project.title}}</h3><br><hr><br>
+            <p>Project Abstract: </p> {{project.abstract}}<br><br><br><br><hr>
+            Block diagram: <img src="{{project.diagram.url}}" alt=""><br><br><br><br><hr>
+            <h3 id="kit">Kit includes:</h3>
+            <ol>
+              <li>Project setup</li>
+              <li>Project Document softcopy</li>
+              <li>Project PPT</li>
+            </ol>
+
+
+            <input class="btn btn-primary btn-lg btn-block" type="submit" data-toggle="modal" data-target="#exampleModal" name="" value="Order Now @ {{project.cost}} /- Only">
+            <!-- <a class="btn btn-primary btn-lg btn-block" class="close" data-dismiss="modal" aria-label="Close">Order Now @ {{project.cost}} /- Only</a> -->
+            <!-- Button trigger modal -->
+          </div>
+          </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          {%csrf_token%}
+          <div class="form-row">
+          <div class="form-group col-md-6 mb-0">
+            {{ form.name|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.phno|as_crispy_field }}
+          </div>
+        </div>
+
+      {{ form.title|as_crispy_field }}
+      {{ form.Email|as_crispy_field }}
+
+
+      </div>
+      <div class="modal-footer">
+        <input class="btn btn-primary" type="submit" name="" value="Order">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+  </form>
+
+{%endblock%}

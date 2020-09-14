@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{%extends 'home/base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block head%}
+<style>
+  .projid{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
+  a{
+    color:#1b07f2;
+  }
+  body{
+    /* background-color: #95bfb2; */
+    /* background-color: #e6edec; */
+  }
+  .submit{
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+  }
+  .thingsboard{
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+  }
+  .card-text{
+    color:#f0110a;
+    font-weight: bold;
+  }
+</style>
+{%endblock%}
+
+{%block body%}
+
+<br><br><br>
+<div class="submit">
+  <img src="{%static "images/submit.jpg"%}" alt="">
+  <input class="btn btn-primary btn-lg btn-block" type="submit" data-toggle="modal" data-target="#exampleModal" name="" value="Submit Your Idea Here">
+</div>
+<div class="thingsboard">
+  <!-- <img src="{%static "images/dashboard.png"%}" width="400" height="200" alt=""> -->
+  <div class="card" style="width: 22rem;">
+  <img src="{%static "images/dashboard.png"%}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">We use ThingsBoard (an open-source IoT platform) for device management, data collection, processing and visualization for IoT projects.</p>
+  </div>
+</div>
+</div>
+<div class="projid">
+{%for proj in project_list%}
+<p><a href="{{proj.get_absolute_url}}" >{{proj.title}}</a></p>
+{%endfor%}
+{% include 'home/pagination.html' with page=project_list%}
+</div>
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Submit Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+            {%csrf_token%}
+            <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.phno|as_crispy_field }}
+            </div>
+          </div>
+        {{ form.Email|as_crispy_field }}
+        {{ form.message|as_crispy_field }}
+        {{ form.diagram|as_crispy_field }}
+
+        </div>
+        <div class="modal-footer">
+          <input class="btn btn-primary" type="submit" name="" value="Submit">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    </form>
+
+{%endblock%}

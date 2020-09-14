@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+{%extends 'home/base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block head%}
+  <style>
+    #tech{
+      background-color: orange;
+      color: blue;
+      font-weight: bold;
+    }
+    #contact{
+      color: blue;
+      font-weight: bold;
+      font-style:oblique;
+    }
+    .bottom{
+
+    }
+    #credits{
+      float: right;
+      color: red;
+      margin-right: 50px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .submit{
+      float: right;
+      margin-top: 50px;
+      /* margin-right: 50px; */
+    }
+  </style>
+{%endblock%}
+
+{%block body%}
+<div class="container text-center my-3">
+  <div class="row mx-auto my-auto">
+      <div id="myCarousel" class="carousel slide w-100" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+              <div class="carousel-item py-5 active">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">IoT Projects</h4>
+                              <img src="{%static "images/IoT.webp"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">Best IEEE IoT projects for B.Tech Final year students</p>
+                              <a href="/projectlist" class="btn btn-primary">List of IoT Projects</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">LoRa Based Projects</h4>
+                              <img src="{%static "images/LoRa.jpg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">Best IEEE LoRa projects for B.Tech Final year students</p>
+                              <a href="#" class="btn btn-primary">List of LoRa Projects</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Embedded Systems Projects</h4>
+                              <img src="{%static "images/Embedded.jpg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">Best IEEE Embedded Systems projects for B.Tech Final year students</p>
+                              <a href="#" class="btn btn-primary">List of Embedded Systems Projects</a>
+                            </div>
+                          </div>
+                      </div>
+                       <!-- <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Card 4</h4>
+                              <p class="card-text">Some make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Button</a>
+                            </div>
+                          </div>
+                      </div> -->
+                  </div>
+              </div>
+              <div class="carousel-item py-5">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Web Design Projects</h4>
+                              <img src="{%static "images/blog.jpeg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">Best Web Application Design and Development using Python and Django</p>
+                              <a href="#" class="btn btn-primary">List of Web apps</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">HTML/CSS & Bootstrap</h4>
+                              <img src="{%static "images/html.webp"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">Best HTML/CSS & Bootstrap Projects for Mini and Major Projects</p>
+                              <a href="#" class="btn btn-primary">List of HTML projects</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Mini Projects</h4>
+                              <img src="{%static "images/mini.jpg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <p class="card-text">2019 IEEE Projects in IoT, Embedded Systems, Matlab, AI and PCB design.</p>
+                              <a href="#" class="btn btn-primary">Mini Projects List</a>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="carousel-item py-5">
+                  <div class="row">
+                      <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Arduino/NodeMCU</h4>
+                              <img src="{%static "images/arduino.png"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <a href="#" class="btn btn-primary">Arduino Projects List</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">STM32 Projects</h4>
+                              <img src="{%static "images/STM32.jpg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <a href="#" class="btn btn-primary">STM32 Projects List</a>
+
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">ARM Projects</h4>
+                              <img src="{%static "images/arm.jpg"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <a href="#" class="btn btn-primary">ARM Projects List</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">PCB Design</h4>
+                              <img src="{%static "images/pcb.png"%}" width="30" height="200" class="d-block w-100" alt="...">
+                              <a href="#" class="btn btn-primary">PCB Design</a>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+          <a class="carousel-control-prev text-dark" href="#myCarousel" role="button" data-slide="prev">
+              <span class="fa fa-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next text-dark" href="#myCarousel" role="button" data-slide="next">
+              <span class="fa fa-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+
+</div>
+
+
+<div id="tech" class="container">
+    <h2>Technologies worked: </h2>
+</div>
+
+<div class="container">
+<!-- <div class="jumbotron"> -->
+<div class="row">
+  <div class="col-lg-3 col-sm-4 col-xs-6">
+    <div class="thumbnail">
+      <img src="{%static "images/gsm.png"%}" alt="">
+    </div>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+      <div class="thumbnail">
+        <img src="{%static "images/lora.png"%}" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+      <div class="thumbnail">
+        <img src="{%static "images/rfid.jpg"%}" alt="">
+      </div>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-xs-6">
+        <div class="thumbnail">
+          <img src="{%static "images/wifi.jpg"%}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-4 col-xs-6">
+        <div class="thumbnail">
+          <img src="{%static "images/nbiot.png"%}" alt="">
+        </div>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-xs-6">
+          <div class="thumbnail">
+            <img src="{%static "images/gprs.jpg"%}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-xs-6">
+          <div class="thumbnail">
+            <img src="{%static "images/ble.jpg"%}" alt="">
+          </div>
+          </div>
+          <div class="col-lg-3 col-sm-4 col-xs-6">
+            <div class="thumbnail">
+              <img src="{%static "images/zigbee.jpg"%}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-sm-4 col-xs-6">
+            <div class="thumbnail">
+              <img src="{%static "images/matlab.jpg"%}" alt="">
+            </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 col-xs-6">
+              <div class="thumbnail">
+                <img src="{%static "images/arduino.png"%}" alt="">
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 col-xs-6">
+              <div class="thumbnail">
+                <img src="{%static "images/rpi.jpg"%}" alt="">
+              </div>
+              </div>
+              <div class="col-lg-3 col-sm-4 col-xs-6">
+                <div class="thumbnail">
+                  <img src="{%static "images/nodemcu.jpg"%}" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-sm-4 col-xs-6">
+                <div class="thumbnail">
+                  <img src="{%static "images/opencv.jpg"%}" alt="">
+                </div>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-xs-6">
+                  <div class="thumbnail">
+                    <img src="{%static "images/arm.png"%}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-xs-6">
+                  <div class="thumbnail">
+                    <img src="{%static "images/3dprint.jpg"%}" alt="">
+                  </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                      <img src="{%static "images/python.jpg"%}" alt="">
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                  <div class="submit">
+                    <img src="{%static "images/submit.jpg"%}" alt="">
+                    <input class="btn btn-primary btn-lg btn-block" type="submit" data-toggle="modal" data-target="#exampleModal" name="" value="Submit Your Idea Here">
+                  </div>
+                <div class="container">
+                      <img src="{%static "images/smartworld.png"%}" alt="">
+                      <h6>* Image credits 'Libelium'</h6>
+                </div>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Submit Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+              {%csrf_token%}
+              <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+              </div>
+              <div class="form-group col-md-6 mb-0">
+                {{ form.phno|as_crispy_field }}
+              </div>
+            </div>
+          {{ form.Email|as_crispy_field }}
+          {{ form.message|as_crispy_field }}
+          {{ form.diagram|as_crispy_field }}
+
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-primary" type="submit" name="" value="Submit">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+<!-- </div> -->
+<div class="container" >
+  <div class="jumbotron">
+    <h3>About Us:</h3>
+    <p>
+      Way2core Technologies established by PhD scholars and working professionals to fulfill the gap between industrial requirements and academics by providing trainings, workshops and internships on all latest technologies like Wireless communications, Image Processing, Embedded Systems, IoT, Robotics, PCB Designing and Mechatronics with real time projects.
+    </p>
+    <h3>Our Mission:</h3>
+    <ul>
+      <li>We started to provide workshops, projects and Internships for Electronics and Communication, Electrical, Computer Science and Mechanical students.</li>
+      <li>To support in publishing technical papers in Journals and conferences</li>
+      <li>To provide complete technical support for educational institutes and engineering students in their academic projects</li>
+      <li>Provide complete customer satisfaction by completing the modules within a stipulated time with a best support.</li>
+      <li>To provide real time experience for students on latest technologies in different domains and various tools like IDEs, Software etc.</li>
+    </ul>
+    <h3>Our Vision:</h3>
+    <ul>
+      <li>The Main vision of Way2Core technologies is to be a pioneer in introducing versatile and resourceful professionals to the growing Industries.</li>
+      <li>To accommodate engineering students with a wide spectrum of technologies and domains</li>
+      <li>To be a pathfinder for young talents by providing real time technical knowledge.</li>
+      <li>Become a trademark in conducting complete technical workshops, Training and internships to colleges and universities.</li>
+    </ul>
+    <h3>Working Domains:</h3>
+    <ol>
+      <li>Internet of Things (IoT)</li>
+      <li>Wireless sensor networks</li>
+      <li>Security devices</li>
+      <li>Embedded systems</li>
+      <li>Communication systems</li>
+      <li>Robotics</li>
+      <li>Image processing</li>
+      <li>Bio-medical engineering</li>
+      <li>Artificial intelligence</li>
+      <li>OpenCV</li>
+    </ol>
+  </div>
+</div>
+<div class="bottom">
+<div class="container jumbotron">
+  <div class="row row-cols-5">
+    <div class="col">
+      <h5>Hardware Projects</h5>
+      <a href="#">IoT Projects</a><br>
+      <a href="#">Embedded systems</a><br>
+      <a href="#">LoRa Based Projects</a><br>
+      <a href="#">Matlab Projects</a><br>
+      <a href="#">Communication Projects</a>
+    </div>
+    <div class="col">
+      <h5>Projects By Courses</h5>
+      <a href="#">Projects for ECE</a><br>
+      <a href="#">Projects for CSE</a><br>
+      <a href="#">Projects for Mechanical</a><br>
+      <a href="#">Web Designing Projects</a><br>
+      <a href="#">PCB Design Projects</a><br>
+    </div>
+    <div class="col">
+      <h5>Simulation Projects</h5>
+      <a href="#">Projects for ECE</a><br>
+      <a href="#">Projects for CSE</a><br>
+      <a href="#">Projects for Mechanical</a><br>
+      <a href="#">Web Designing Projects</a><br>
+      <a href="#">PCB Design Projects</a><br>
+    </div>
+    <div class="col-4" id="contact" align='center'>
+      <h5>Contact Us</h5>
+      <h6>Sarath Chandu Gaddam</h6>
+      <h6>Director</h6>
+      <h6>Way2core Technologies</h6>
+      <h6>Contact Number: 7993651993/9052457605</h6>
+      <h6>Email ID: way2coretech@gmail.com</h6>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<div id="credits">
+  <h6>*Image credits "UNSPLASH"</h6>
+</div>
+
+{%endblock%}
